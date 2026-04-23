@@ -3,46 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sevgilime Özel</title>
+    <title>Seni Seviyorum</title>
     <style>
         body {
-            margin: 0;
+            background-color: black;
+            color: #7df9ff;
+            font-family: monospace;
+            font-size: 22px;
             padding: 20px;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            margin: 0;
+            overflow-x: hidden;
         }
-        .container {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            text-align: center;
-            max-width: 500px;
-        }
-        h1 {
-            color: #764ba2;
-            margin-bottom: 20px;
-        }
-        p {
-            color: #666;
-            line-height: 1.6;
-        }
-        .heart {
-            font-size: 40px;
-            margin: 20px 0;
+        #output {
+            line-height: 1.4;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>💜 Sevgilime Özel 💜</h1>
-        <div class="heart">❤️</div>
-        <p>Hoşgeldin! Bu sayfa sana özel yapılmıştır.</p>
-        <p>Burası senin için özel bir yer...</p>
-    </div>
+    <div id="output"></div>
+
+    <script>
+        let i = 1;
+        const output = document.getElementById("output");
+
+        function yaz() {
+            const div = document.createElement("div");
+            div.textContent = i + ". SENİ ÇOK SEVİYORUM 🤍";
+            output.appendChild(div);
+            i++;
+
+            // Sayfa çok şişmesin diye eski satırları sil
+            if (output.children.length > 100) {
+                output.removeChild(output.firstChild);
+            }
+        }
+
+        // Her 200ms'de bir yaz
+        setInterval(yaz, 200);
+        
+        // İlk yazıyı hemen yaz
+        yaz();
+    </script>
 </body>
 </html>
